@@ -10,10 +10,8 @@
 [work](./category.md#work),
 [game](./category.md#game)
 
-## Journal
+## 2024/08
 
-2024/08
----
 ### [Rewatch *Code Geass*](./2024-08-11-03.md)
 ### [Another view of Rust's lifetime](./2024-08-11-02.md)
 ### [The two sides of programming languages](./2024-08-11-01.md)
