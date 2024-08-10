@@ -1,7 +1,6 @@
 # Blog
 
-## [Categories](./category.md)
-
+[categories](./category.md)
 [programming](./category.md#programming), 
 [math](./category.md#math), 
 [workout](./category.md#workout),
