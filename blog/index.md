@@ -1,13 +1,13 @@
 # Blog
 
-[categories](./category.md)
-[programming](./category.md#programming), 
-[math](./category.md#math), 
-[workout](./category.md#workout),
-[linguistics](./category.md#linguistics),
-[anime](./category.md#anime),
-[work](./category.md#work),
-[game](./category.md#game)
+[`categories`](./category.md)
+[`programming`](./category.md#programming), 
+[`math`](./category.md#math), 
+[`workout`](./category.md#workout),
+[`linguistics`](./category.md#linguistics),
+[`anime`](./category.md#anime),
+[`work`](./category.md#work),
+[`game`](./category.md#game)
 
 ## 2024/08
 
