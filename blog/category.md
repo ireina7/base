@@ -14,6 +14,7 @@
 ## Linguistics
 
 ## Anime
+### [Rewatch *Code Geass*](./2024-08-11-03.md)
 
 ## Music
 
