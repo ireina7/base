@@ -2,8 +2,10 @@
 
 ## [Categories](./category.md)
 
+[programming](./category.md#programming), [math](./category.md#math)
 
 ## Journal
+
 2024/08/11
 ---
 ### [Another view of Rust's lifetime](./2024-08-11-02.md)

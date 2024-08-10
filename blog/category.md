@@ -6,3 +6,5 @@
 ### [Polymorphism in Rust](./2024-08-05-03.md)
 ### [My programming key bindings](./2024-08-10-01.md)
 ### [The two sides of programming languages](./2024-08-11-01.md)
+
+## Math
