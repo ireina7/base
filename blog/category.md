@@ -8,3 +8,17 @@
 ### [The two sides of programming languages](./2024-08-11-01.md)
 
 ## Math
+
+## Workout
+
+## Linguistics
+
+## Anime
+
+## Music
+
+## Reading
+
+## Work
+
+## Game

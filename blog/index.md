@@ -2,7 +2,13 @@
 
 ## [Categories](./category.md)
 
-[programming](./category.md#programming), [math](./category.md#math)
+[programming](./category.md#programming), 
+[math](./category.md#math), 
+[workout](./category.md#workout),
+[linguistics](./category.md#linguistics),
+[anime](./category.md#anime),
+[work](./category.md#work),
+[game](./category.md#game)
 
 ## Journal
 
