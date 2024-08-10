@@ -1,11 +1,11 @@
 # Categories
 
 ## Programming
-### [Golang is terrible as a general purpose language](./2024-08-05-01.md)
-### [`Relaxed` ordering and visibility](./2024-08-05-02.md)
-### [Polymorphism in Rust](./2024-08-05-03.md)
-### [My programming key bindings](./2024-08-10-01.md)
-### [The two sides of programming languages](./2024-08-11-01.md)
+### [Golang is terrible as a general purpose language](./journal/2024-08-05-01.md)
+### [`Relaxed` ordering and visibility](./journal/2024-08-05-02.md)
+### [Polymorphism in Rust](./journal/2024-08-05-03.md)
+### [My programming key bindings](./journal/2024-08-10-01.md)
+### [The two sides of programming languages](./journal/2024-08-11-01.md)
 
 ## Math
 
@@ -14,7 +14,7 @@
 ## Linguistics
 
 ## Anime
-### [Rewatch *Code Geass*](./2024-08-11-03.md)
+### [Rewatch *Code Geass*](./journal/2024-08-11-03.md)
 
 ## Music
 
