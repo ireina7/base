@@ -11,6 +11,7 @@
 
 ## 2024/08
 
+### [基于省略规则的轻量级英语语法系统](./journal/2024-08-19-01.md)
 ### [*Golang* does have sum types, however...](./journal/2024-08-11-04.md)
 ### [Rewatch *Code Geass*](./journal/2024-08-11-03.md)
 ### [Another view of Rust's lifetime](./journal/2024-08-11-02.md)
