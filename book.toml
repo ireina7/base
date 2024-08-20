@@ -1,0 +1,6 @@
+[book]
+authors = ["ireina7"]
+language = "en"
+multilingual = false
+src = "src"
+title = "base"
