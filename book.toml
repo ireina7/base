@@ -8,3 +8,6 @@ title = "Comcx's secret base"
 [output.html.fold]
 enable = true
 level = 1
+
+[preprocessor.katex]
+after = ["links"]
