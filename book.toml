@@ -1,6 +1,10 @@
 [book]
-authors = ["ireina7"]
+authors = ["comcx", "ireina7"]
 language = "en"
 multilingual = false
 src = "src"
-title = "base"
+title = "Comcx's secret base"
+
+[output.html.fold]
+enable = true
+level = 1
