@@ -24,3 +24,5 @@
   - [Reading](./categories/reading.md)
   - [Work](./categories/work.md)
   - [Game](./categories/game.md)
+
+- [Test](./TEST.md)
