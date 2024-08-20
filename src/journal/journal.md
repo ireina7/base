@@ -4,7 +4,7 @@
 [`programming`](../categories/programming.md)
 [`math`](../categories/math.md)
 [`workout`](../categories/workout.md)
-[`linguistics`](./categories/linguistics.md)
+[`linguistics`](../categories/linguistics.md)
 [`anime`](../categories/anime.md)
 [`work`](../categories/work.md)
 [`game`](../categories/game.md)
