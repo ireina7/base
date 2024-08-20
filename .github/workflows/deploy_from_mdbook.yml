@@ -1,0 +1,53 @@
+# deploy from main to gh-pages
+# generate web pages from markdown files
+# it seems that files still need to be deployed by the other workflow
+name: deploy_from_mdbook
+
+# Controls when the action will run. 
+on:
+  # Triggers the workflow on push or pull request events but only for the main branch
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
+
+      # Build markdown files to a static site.
+      - name: setup mdbook
+        uses: peaceiris/actions-mdbook@v1
+        with:
+          mdbook-version: "latest"
+
+      - name: setup mdbook-katex
+        uses: actions-rs/install@v0.1.2
+        with:
+          crate: mdbook-katex
+          version: latest
+          use-tool-cache: true
+
+      - run:
+          mdbook build . --dest-dir ./book # --dest-dir is relative to <dir>
+
+      # Publish the static site to gh-pages branch.
+      - name: deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN}}
+          publish_dir: ./book
+          publish_branch: gh-pages
