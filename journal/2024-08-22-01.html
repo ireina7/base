@@ -195,6 +195,11 @@ They can help us manage complex structures of program.</p>
 However, if handle is a blocking call or can consume much time and Ireina didn't notice this,
 <code>logic</code> may block the whole program. Even if <code>logic</code> cause no serious problem, another new programmer may create another function <code>logic2</code> calling <code>logic</code>, and <code>logic3</code> calling <code>logic2</code>, which wil eventually cause blocking problem.</p>
 <p>Functions without color still need better document or comment to tell the caller how to use it and how to choose proper context to use it. Even worse, if some inner function may <em>panic</em>, it will destroy the whole calling chain!</p>
+<p>How about channels as return type?</p>
+<pre><code class="language-go">func handle() &lt;-chan string
+</code></pre>
+<p>This way is much much better! but in fact it is marking async effect now!
+This is not about stackful coroutines, it's just about abstraction and constraints.</p>
 <h2 id="async-should-be-marked-and-controled"><a class="header" href="#async-should-be-marked-and-controled">Async should be marked and controled</a></h2>
 <p>Now suppose <code>handle</code> is marked as <code>async</code> in Rust:</p>
 <pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
@@ -210,10 +215,10 @@ fn handle() -&gt; impl Future&lt;Output=()&gt; + Send;
 <li>Mark <code>logic</code> as <code>async</code> too.</li>
 </ul>
 <p>She can never simply blocking on it without noticing.</p>
-<u>
-Colors can serve as a tool which indicate many *side-effect*s a function can cause.
-Also, colors within a proper type system can prevent many potential bugs and performance issue.
-</u>
+<blockquote>
+<p>Colors can serve as a tool which indicate many <em>side-effect</em>s a function can cause.
+Also, colors within a proper type system can prevent many potential bugs and performance issue.</p>
+</blockquote>
 <h2 id="color-of-effects"><a class="header" href="#color-of-effects">Color of <em>effects</em></a></h2>
 <p>Beside <code>async</code>, there also exists many kinds of <em>effects</em>, such as <em>error handling</em>, <em>IO</em>, <em>optional</em>, <em>dependency injection</em>, etc. We can even compose these effects or even abstract over it to support various kinds of effects without changing code!</p>
 <p>Embrace colors and effects!</p>
