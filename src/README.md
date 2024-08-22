@@ -8,5 +8,4 @@ I'm a programmer writing *Rust*, *C*, *Go* and *Haskell*.
 [Zhihu](https://www.zhihu.com/people/comcx) 
 
 
-
 [^1]: *Ex falso quodlibet*

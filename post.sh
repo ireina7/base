@@ -12,7 +12,9 @@ else
     path=journal/$date.md
 fi
 
-touch "./src/$path"
+BLOG_FILE="./src/$path"
+touch $BLOG_FILE
+echo "# $1" >> $BLOG_FILE
 
 # sed "/^- \[Journal\]/s/$/ $1/" ./src/SUMMARY.md
 
