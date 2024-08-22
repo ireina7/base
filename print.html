@@ -217,8 +217,40 @@ Therefore <em>stackful coroutine</em> is better for managing complex coding.</p>
 <p>All colors, not only <em>async</em>, are all our friends!
 They can help us manage complex structures of program.</p>
 <h2 id="stackful-goroutine-without-color-is-not-that-good"><a class="header" href="#stackful-goroutine-without-color-is-not-that-good">Stackful goroutine without color is not that good</a></h2>
+<p>Suppose a <em>Golang</em> function with the following signature:</p>
+<pre><code class="language-go">func handle()
+</code></pre>
+<p>and now a new programmer Ireina joins the project and simply use the function in a blocking function <code>logic</code>:</p>
+<pre><code class="language-go">func logic() {
+    handle()
+}
+</code></pre>
+<p>If function <code>handle</code> is a <em>non-blocking</em> call, then everything is ok.
+However, if handle is a blocking call or can consume much time and Ireina didn't notice this,
+<code>logic</code> may block the whole program. Even if <code>logic</code> cause no serious problem, another new programmer may create another function <code>logic2</code> calling <code>logic</code>, and <code>logic3</code> calling <code>logic2</code>, which wil eventually cause blocking problem.</p>
+<p>Functions without color still need better document or comment to tell the caller how to use it and how to choose proper context to use it. Even worse, if some inner function may <em>panic</em>, it will destroy the whole calling chain!</p>
 <h2 id="async-should-be-marked-and-controled"><a class="header" href="#async-should-be-marked-and-controled">Async should be marked and controled</a></h2>
+<p>Now suppose <code>handle</code> is marked as <code>async</code> in Rust:</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>async fn handle();
+
+// or
+fn handle() -&gt; impl Future&lt;Output=()&gt; + Send;
+<span class="boring">}</span></code></pre></pre>
+<p>Now Ireina only has 2 options of using it:</p>
+<ul>
+<li>Explicitly use a runtime to block on it until finished.</li>
+<li>Mark <code>logic</code> as <code>async</code> too.</li>
+</ul>
+<p>She can never simply blocking on it without noticing.</p>
+<u>
+Colors can serve as a tool which indicate many *side-effect*s a function can cause.
+Also, colors within a proper type system can prevent many potential bugs and performance issue.
+</u>
 <h2 id="color-of-effects"><a class="header" href="#color-of-effects">Color of <em>effects</em></a></h2>
+<p>Beside <code>async</code>, there also exists many kinds of <em>effects</em>, such as <em>error handling</em>, <em>IO</em>, <em>optional</em>, <em>dependency injection</em>, etc. We can even compose these effects or even abstract over it to support various kinds of effects without changing code!</p>
+<p>Embrace colors and effects!</p>
 <div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
 <h1 id="基于省略规则的轻量级英语语法系统"><a class="header" href="#基于省略规则的轻量级英语语法系统">基于省略规则的轻量级英语语法系统</a></h1>
 <p>对于单纯的语言使用者而言，一门自然语言的语法其实并不是很重要，只有语言学者才会在意并尝试进行系统化。
