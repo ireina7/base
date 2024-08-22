@@ -178,7 +178,7 @@
 <p>Compared with <em>Haskell</em>, Rust is different for its effect system and ownership system.
 Inside ownership system, lifetime plays an important role on borrowing and safety.
 Traditionally, people think about lifetime as some region of code, which is a little kind of vague.
-Why not try to see lifetime as a kind of memory reference?</p>
+Why not try to see lifetime as a kind of memory(dependency) reference?</p>
 <h2 id="lifetime-as-scope"><a class="header" href="#lifetime-as-scope">Lifetime as scope?</a></h2>
 <p><em>The Rust book</em> suggests viewing lifetime as scopes. Consider a simple example:</p>
 <pre><pre class="playground"><code class="language-rust">fn main() {
@@ -202,11 +202,104 @@ If we simply remove the last <code>println!</code> line, this code just compile 
         r = &amp;x;           //  |       |
     }                     // -+       |
 }                         // ---------+</code></pre></pre>
-<p>Why? Apparently <em>scope</em> view is not correct. We need something better.</p>
+<p>Why?</p>
+<p>Even worse, lifetime can contain <em>holes</em>, where it’s intermittently invalid between where it starts and where it ultimately ends. For example, let's change out previous code simply:</p>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    let i = 42;
+    let mut r;                
+    {
+        let x = 5;        
+        r = &amp;x;            // -------------+-- 'r
+                           //              |
+    }                      // -------------+
+
+    r = &amp;i;                // -------------+-- 'r
+    println!("r: {}", *r); //              |
+}                          // -------------+</code></pre></pre>
+<p>This time the code compiles. Surprise!
+Why? why this code compiles fine?? If r's lifetime coprresponds to <code>x</code>'s reference, why <code>r</code> can br printed outside <code>x</code>'s scope now? There may exist holes in lifetime.</p>
+<p>Apparently <em>scope</em> view is not correct. We need something better.</p>
 <h2 id="lifetime-as-regions-of-code"><a class="header" href="#lifetime-as-regions-of-code">Lifetime as regions of code?</a></h2>
-<p><em>Rustonomicon</em> the book suggests viewing lifetime as named regions of code.</p>
+<p><em>Rustonomicon</em> the book suggests viewing lifetime as named regions of code.
+Now out previous problems are solved, since <code>'r</code> spans only its valid data flow regions and the regions can contains arbitrary holes.</p>
+<blockquote>
+<p>Lifetime is named regions of code where the pointed data is valid.</p>
+</blockquote>
+<p>What about lifetime constraints like <code>'a: 'b</code>?</p>
 <h2 id="lifetime-subtyping"><a class="header" href="#lifetime-subtyping">Lifetime subtyping</a></h2>
+<p>Subtyping is really just a spectial relation just as other <em>trait</em>s can represent.
+The only subtyping in rust is lifetime subtyping.</p>
+<blockquote>
+<p>if <code>'b</code> outlives <code>'a</code>, then <code>'b: 'a</code> and <code>&amp;'b T</code> is a subtype of <code>&amp;'a T</code>.</p>
+</blockquote>
+<p>Since <code>&amp;'b T</code> is a subtype of <code>&amp;'a T</code>, we can assign any <code>&amp;'b T</code> to <code>&amp;'a T</code>.
+For example(again from <em>the rust book</em>):</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>fn longer&lt;'a&gt;(s1: &amp;'a str, s2: &amp;'a str) -&gt; &amp;'a str {
+    if s1.len() &gt; s2.len() {
+        s1
+    } else {
+        s2
+    }
+}
+<span class="boring">}</span></code></pre></pre>
+<p>Actually, this code cannot compile without lifetime subtyping. It's equivalent to this code:</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>fn longer&lt;'a, 'b, 'c&gt;(s1: &amp;'a str, s2: &amp;'b str) -&gt; &amp;'c str 
+where
+    'a: 'c,
+    'b: 'c,
+{
+    if s1.len() &gt; s2.len() {
+        s1
+    } else {
+        s2
+    }
+}
+<span class="boring">}</span></code></pre></pre>
+<p>Automatic subtyping is only a fancy and convenient way to expression this relationship.</p>
 <h2 id="lifetime-as-memory-references"><a class="header" href="#lifetime-as-memory-references">Lifetime as memory references</a></h2>
+<p>If you know <em>category theory</em>, you may heard of <em>duality</em>.
+Just like <em>category theory</em>, the code region view also has its <em>DUAL</em> view:</p>
+<blockquote>
+<p>A lifetime refers to some memory or other resources and
+constraint <code>'a: 'b</code> can also be read <code>'a</code> refers to a subset of <code>'b</code> or, if you like, <code>'a</code> in <code>'b</code>.</p>
+</blockquote>
+<p>In this dual view, if <code>'a</code> outlives <code>'b</code>, <code>'b</code> contains more resources than <code>'a</code> does.
+I find this view is somehow complement to the region view.</p>
+<p>Let's demonstrate this view with the following code:</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>fn use_longer() {
+    let a: &amp;str = "a";     // 'a
+    let b: &amp;str = "b";     // 'b
+    let c: &amp;str = "c";     // 'c
+
+    let d = longer(a, b);  // 'd
+    let d = longer(c, d);  // 'e
+}
+<span class="boring">}</span></code></pre></pre>
+<pre><code>'e -&gt; {
+    'd -&gt; {
+        'a,
+        'b,
+    },
+    'c,
+}
+</code></pre>
+<p>where arrow <code>-&gt;</code> means point to some resource and <code>{}</code> means union.
+From this graph, we can easily conclude:</p>
+<pre><code>'a: 'd
+'b: 'd
+
+'d: 'e
+'c: 'e
+
+'a: 'e
+'b: 'e
+</code></pre>
 
                     </main>
 
