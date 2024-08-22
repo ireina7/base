@@ -6,5 +6,5 @@
 - [My programming key bindings](../journal/2024-08-10-01.md)
 - [The two sides of programming languages](../journal/2024-08-11-01.md)
 - [*Golang* does have sum types, however...](../journal/2024-08-11-04.md)
-- [Another view of Rust's lifetime](./journal/2024-08-11-02.md)
-
+- [Another view of Rust's lifetime](../journal/2024-08-11-02.md)
+- [Why the color of a function is our friend](../journal/2024-08-22-01.md)
