@@ -9,6 +9,9 @@
 [`work`](../categories/work.md)
 [`game`](../categories/game.md)
 
+## 2024/09
+- [Inside Tokio's `task_local!`](./2024-09-01-01.md)
+
 ## 2024/08
 - [Unravel *Tokio*'s `CurrentThread` runtime](./2024-08-22-02.md)
 - [Why the color of a function is our friend](./2024-08-22-01.md)

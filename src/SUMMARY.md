@@ -4,6 +4,7 @@
 
 # Blog
 - [Journal](./journal/journal.md)
+  - [Inside Tokio's `task_local!`](./journal/2024-09-01-01.md)
   - [Unravel *Tokio*'s CurrentThread runtime](./journal/2024-08-22-02.md)
   - [Why the color of a function is our friend](./journal/2024-08-22-01.md)
   - [基于省略规则的轻量级英语语法系统](./journal/2024-08-19-01.md)
