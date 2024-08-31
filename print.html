@@ -178,11 +178,14 @@
 <p><img src="./assets/icons8-best-terraria-48.png" alt="avatar" /></p>
 <p>Hello, this is <em>Comcx</em> (or <em>Ireina</em>)<sup class="footnote-reference"><a href="#1">1</a></sup>.
 I'm a programmer writing <em>Rust</em>, <em>C</em>, <em>Go</em> and <em>Haskell</em>.</p>
-<p><a href="./journal/journal.html">Blog</a><br />
+<p><a href="./journal/journal.html">Blog</a><sup class="footnote-reference"><a href="#2">2</a></sup><br />
 <a href="https://github.com/ireina7">Github</a><br />
 <a href="https://www.zhihu.com/people/comcx">Zhihu</a></p>
 <div class="footnote-definition" id="1"><sup class="footnote-definition-label">1</sup>
 <p><em>Ex falso quodlibet</em></p>
+</div>
+<div class="footnote-definition" id="2"><sup class="footnote-definition-label">2</sup>
+<p>🚧 for underwork(unfinished) state</p>
 </div>
 <div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
 <h1 id="blog"><a class="header" href="#blog">Blog</a></h1>
@@ -200,11 +203,11 @@ I'm a programmer writing <em>Rust</em>, <em>C</em>, <em>Go</em> and <em>Haskell<
 </ul>
 <h2 id="202408"><a class="header" href="#202408">2024/08</a></h2>
 <ul>
-<li><a href="journal/./2024-08-22-02.html">Unravel <em>Tokio</em>'s <code>CurrentThread</code> runtime</a></li>
+<li>🚧 <a href="journal/./2024-08-22-02.html">Unravel <em>Tokio</em>'s <code>CurrentThread</code> runtime</a></li>
 <li><a href="journal/./2024-08-22-01.html">Why the color of a function is our friend</a></li>
-<li><a href="journal/./2024-08-19-01.html">基于省略规则的轻量级英语语法系统</a></li>
+<li>🚧 <a href="journal/./2024-08-19-01.html">基于省略规则的轻量级英语语法系统</a></li>
 <li><a href="journal/./2024-08-11-04.html"><em>Golang</em> does have sum types, however...</a></li>
-<li><a href="journal/./2024-08-11-03.html">Rewatch <em>Code Geass</em></a></li>
+<li>🚧 <a href="journal/./2024-08-11-03.html">Rewatch <em>Code Geass</em></a></li>
 <li><a href="journal/./2024-08-11-02.html">Another view of Rust's lifetime</a></li>
 <li><a href="journal/./2024-08-11-01.html">The two sides of programming languages</a></li>
 <li><a href="journal/./2024-08-10-01.html">My programming key bindings</a></li>
@@ -258,7 +261,7 @@ When task 1 is ready to run again, it may select another thread 2 to poll.
 Therefore, <code>thread_local</code> values may be overwritten or lost.</p>
 <h2 id="swap"><a class="header" href="#swap">Swap!</a></h2>
 <p>So, how does <code>task_local</code> ensure thread_local values not be overwritten or lost?
-The secret is under the implementation of <code>Future</code> for <code>task::LocalKey</code>.</p>
+The secret is under the implementation of <code>Future</code> for <code>task::LocalKey</code>'s wrapper.</p>
 <p>Firstly, to use a LocalKey, one need to <code>scope</code> it and produce a <code>TaskLocalFuture&lt;T, F&gt;</code>
 which binds <code>T</code> and the corresponding task's future <code>F</code>:</p>
 <pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]

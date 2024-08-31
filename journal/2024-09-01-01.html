@@ -219,7 +219,7 @@ When task 1 is ready to run again, it may select another thread 2 to poll.
 Therefore, <code>thread_local</code> values may be overwritten or lost.</p>
 <h2 id="swap"><a class="header" href="#swap">Swap!</a></h2>
 <p>So, how does <code>task_local</code> ensure thread_local values not be overwritten or lost?
-The secret is under the implementation of <code>Future</code> for <code>task::LocalKey</code>.</p>
+The secret is under the implementation of <code>Future</code> for <code>task::LocalKey</code>'s wrapper.</p>
 <p>Firstly, to use a LocalKey, one need to <code>scope</code> it and produce a <code>TaskLocalFuture&lt;T, F&gt;</code>
 which binds <code>T</code> and the corresponding task's future <code>F</code>:</p>
 <pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
