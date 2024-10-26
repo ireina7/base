@@ -10,6 +10,7 @@
 [`game`](../categories/game.md)
 
 ## 2024/10
+- [Bash may swallow signals](./2024-10-26-02.md)
 - [Rusty docker setting](./2024-10-26-01.md)
 
 ## 2024/09

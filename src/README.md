@@ -1,7 +1,7 @@
 ![avatar](./assets/icons8-best-terraria-48.png)
 
 Hello, this is *Comcx* (or *Ireina*)[^1].
-I'm a programmer writing *Rust*, *C*, *Go* and *Haskell*.
+I'm a programmer writing *Rust*, *C/C++*, *Java*, *Go* and *Haskell*.
 
 [Blog](./journal/journal.md)[^2]  
 [Github](https://github.com/ireina7)  
