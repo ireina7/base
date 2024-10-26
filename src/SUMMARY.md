@@ -16,6 +16,7 @@
   - [Polymorphism in Rust](./journal/2024-08-05-03.md)
   - [`Relaxed` ordering and visibility](./journal/2024-08-05-02.md)
   - [Golang is terrible as a general purpose language](./journal/2024-08-05-01.md)
+  - [Rusty docker setting](./journal/2024-10-26-01.md)
 
 - [Categories](./categories/category.md)
   - [Programming](./categories/programming.md)

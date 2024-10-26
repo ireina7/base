@@ -1,4 +1,5 @@
 # Programming
+- [Rusty docker setting](../journal/2024-10-26-01.md)
 - [Inside Tokio's `task_local!`](../journal/2024-09-01-01.md)
 - [Why the color of a function is our friend](../journal/2024-08-22-01.md)
 - [Another view of Rust's lifetime](../journal/2024-08-11-02.md)

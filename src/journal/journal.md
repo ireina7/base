@@ -9,6 +9,9 @@
 [`work`](../categories/work.md)
 [`game`](../categories/game.md)
 
+## 2024/10
+- [Rusty docker setting](./2024-10-26-01.md)
+
 ## 2024/09
 - [Inside Tokio's `task_local!`](./2024-09-01-01.md)
 
