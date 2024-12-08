@@ -4,6 +4,7 @@
 
 # Blog
 - [Journal](./journal/journal.md)
+  - [Digimon exhibition](./journal/2024-12-08-01.md)
   - [Bash may swallow signals](./journal/2024-10-26-02.md)
   - [Rusty docker setting](./journal/2024-10-26-01.md)
   - [Inside Tokio's `task_local!`](./journal/2024-09-01-01.md)
@@ -18,16 +19,5 @@
   - [Polymorphism in Rust](./journal/2024-08-05-03.md)
   - [`Relaxed` ordering and visibility](./journal/2024-08-05-02.md)
   - [Golang is terrible as a general purpose language](./journal/2024-08-05-01.md)
-
-- [Categories](./categories/category.md)
-  - [Programming](./categories/programming.md)
-  - [Math](./categories/math.md)
-  - [Workout](./categories/workout.md)
-  - [Linguistics](./categories/linguistics.md)
-  - [Anime](./categories/anime.md)
-  - [Music](./categories/music.md)
-  - [Reading](./categories/reading.md)
-  - [Work](./categories/work.md)
-  - [Game](./categories/game.md)
 
 - [Test](./TEST.md)

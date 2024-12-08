@@ -1,22 +1,28 @@
 # Blog
 
-[`categories`](../categories/category.md)
-[`programming`](../categories/programming.md)
-[`math`](../categories/math.md)
-[`workout`](../categories/workout.md)
-[`linguistics`](../categories/linguistics.md)
-[`anime`](../categories/anime.md)
-[`work`](../categories/work.md)
-[`game`](../categories/game.md)
+[`categories`](?search=@tag(categories))
+[`programming`](?search=@tag(programming))
+[`rust`](?search=@tag(rust))
+[`math`](?search=@tag(math))
+[`workout`](?search=@tag(workout))
+[`linguistics`](?search=@tag(linguistics))
+[`anime`](?search=@tag(anime))
+[`work`](?search=@tag(work))
+[`game`](?search=@tag(game))
 
-## 2024/10
+---
+
+*2024/12*
+- [Digimon exhibition](./2024-12-08-01.md)
+
+*2024/10*
 - [Bash may swallow signals](./2024-10-26-02.md)
 - [Rusty docker setting](./2024-10-26-01.md)
 
-## 2024/09
+*2024/09*
 - [Inside Tokio's `task_local!`](./2024-09-01-01.md)
 
-## 2024/08
+*2024/08*
 - 🚧 [Unravel *Tokio*'s `CurrentThread` runtime](./2024-08-22-02.md) 
 - [Why the color of a function is our friend](./2024-08-22-01.md)
 - 🚧 [基于省略规则的轻量级英语语法系统](./2024-08-19-01.md)

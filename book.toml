@@ -9,5 +9,14 @@ title = "Comcx's secret base"
 enable = true
 level = 0
 
+[output.html.search]
+enable = true            # enables the search feature
+limit-results = 1000     # maximum number of search results
+use-boolean-and = true   # multiple search terms must all match
+
+[output.html]
+mathjax-support = true
+additional-css = ["./src/assets/custom.css"]
+
 [preprocessor.katex]
 after = ["links"]
