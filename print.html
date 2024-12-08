@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html lang="en" class="light" dir="ltr">
+<html lang="en" class="light sidebar-visible" dir="ltr">
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
@@ -8,7 +8,7 @@
 
 
         <!-- Custom HTML head -->
-        
+
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff">
@@ -30,16 +30,21 @@
         <link rel="stylesheet" href="ayu-highlight.css">
 
         <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="./src/assets/custom.css">
 
-    </head>
-    <body class="sidebar-visible no-js">
-    <div id="body-container">
+        <!-- MathJax -->
+        <script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
         <!-- Provide site root to javascript -->
         <script>
             var path_to_root = "";
             var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
         </script>
-
+        <!-- Start loading toc.js asap -->
+        <script src="toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
         <script>
             try {
@@ -61,19 +66,16 @@
             var theme;
             try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
             if (theme === null || theme === undefined) { theme = default_theme; }
-            var html = document.querySelector('html');
+            const html = document.documentElement;
             html.classList.remove('light')
             html.classList.add(theme);
-            var body = document.querySelector('body');
-            body.classList.remove('no-js')
-            body.classList.add('js');
+            html.classList.add("js");
         </script>
 
         <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
 
         <!-- Hide / unhide sidebar before it is displayed -->
         <script>
-            var body = document.querySelector('body');
             var sidebar = null;
             var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
             if (document.body.clientWidth >= 1080) {
@@ -83,45 +85,25 @@
                 sidebar = 'hidden';
             }
             sidebar_toggle.checked = sidebar === 'visible';
-            body.classList.remove('sidebar-visible');
-            body.classList.add("sidebar-" + sidebar);
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
-            <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item affix "><a href="index.html">Readme</a></li><li class="chapter-item affix "><li class="part-title">Blog</li><li class="chapter-item "><a href="journal/journal.html"><strong aria-hidden="true">1.</strong> Journal</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="journal/2024-10-26-02.html"><strong aria-hidden="true">1.1.</strong> Bash may swallow signals</a></li><li class="chapter-item "><a href="journal/2024-10-26-01.html"><strong aria-hidden="true">1.2.</strong> Rusty docker setting</a></li><li class="chapter-item "><a href="journal/2024-09-01-01.html"><strong aria-hidden="true">1.3.</strong> Inside Tokio's task_local!</a></li><li class="chapter-item "><a href="journal/2024-08-22-02.html"><strong aria-hidden="true">1.4.</strong> Unravel Tokio's CurrentThread runtime</a></li><li class="chapter-item "><a href="journal/2024-08-22-01.html"><strong aria-hidden="true">1.5.</strong> Why the color of a function is our friend</a></li><li class="chapter-item "><a href="journal/2024-08-19-01.html"><strong aria-hidden="true">1.6.</strong> 基于省略规则的轻量级英语语法系统</a></li><li class="chapter-item "><a href="journal/2024-08-11-04.html"><strong aria-hidden="true">1.7.</strong> Golang does have sum types, however...</a></li><li class="chapter-item "><a href="journal/2024-08-11-03.html"><strong aria-hidden="true">1.8.</strong> Rewatch Code Geass</a></li><li class="chapter-item "><a href="journal/2024-08-11-02.html"><strong aria-hidden="true">1.9.</strong> Another view of Rust's lifetime</a></li><li class="chapter-item "><a href="journal/2024-08-11-01.html"><strong aria-hidden="true">1.10.</strong> The two sides of programming languages</a></li><li class="chapter-item "><a href="journal/2024-08-10-01.html"><strong aria-hidden="true">1.11.</strong> My programming key bindings</a></li><li class="chapter-item "><a href="journal/2024-08-05-03.html"><strong aria-hidden="true">1.12.</strong> Polymorphism in Rust</a></li><li class="chapter-item "><a href="journal/2024-08-05-02.html"><strong aria-hidden="true">1.13.</strong> Relaxed ordering and visibility</a></li><li class="chapter-item "><a href="journal/2024-08-05-01.html"><strong aria-hidden="true">1.14.</strong> Golang is terrible as a general purpose language</a></li></ol></li><li class="chapter-item "><a href="categories/category.html"><strong aria-hidden="true">2.</strong> Categories</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="categories/programming.html"><strong aria-hidden="true">2.1.</strong> Programming</a></li><li class="chapter-item "><a href="categories/math.html"><strong aria-hidden="true">2.2.</strong> Math</a></li><li class="chapter-item "><a href="categories/workout.html"><strong aria-hidden="true">2.3.</strong> Workout</a></li><li class="chapter-item "><a href="categories/linguistics.html"><strong aria-hidden="true">2.4.</strong> Linguistics</a></li><li class="chapter-item "><a href="categories/anime.html"><strong aria-hidden="true">2.5.</strong> Anime</a></li><li class="chapter-item "><a href="categories/music.html"><strong aria-hidden="true">2.6.</strong> Music</a></li><li class="chapter-item "><a href="categories/reading.html"><strong aria-hidden="true">2.7.</strong> Reading</a></li><li class="chapter-item "><a href="categories/work.html"><strong aria-hidden="true">2.8.</strong> Work</a></li><li class="chapter-item "><a href="categories/game.html"><strong aria-hidden="true">2.9.</strong> Game</a></li></ol></li><li class="chapter-item "><a href="TEST.html"><strong aria-hidden="true">3.</strong> Test</a></li></ol>
-            </div>
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle">
                 <div class="sidebar-resize-indicator"></div>
             </div>
         </nav>
 
-        <!-- Track and set sidebar scroll position -->
-        <script>
-            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
-            sidebarScrollbox.addEventListener('click', function(e) {
-                if (e.target.tagName === 'A') {
-                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
-                }
-            }, { passive: true });
-            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
-            sessionStorage.removeItem('sidebar-scroll');
-            if (sidebarScrollTop) {
-                // preserve sidebar scroll position when navigating via links within sidebar
-                sidebarScrollbox.scrollTop = sidebarScrollTop;
-            } else {
-                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
-                var activeSection = document.querySelector('#sidebar .active');
-                if (activeSection) {
-                    activeSection.scrollIntoView({ block: 'center' });
-                }
-            }
-        </script>
-
         <div id="page-wrapper" class="page-wrapper">
 
             <div class="page">
-                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar-hover-placeholder"></div>
                 <div id="menu-bar" class="menu-bar sticky">
                     <div class="left-buttons">
                         <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
@@ -189,24 +171,30 @@ I'm a programmer writing <em>Rust</em>, <em>C/C++</em>, <em>Java</em>, <em>Go</e
 </div>
 <div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
 <h1 id="blog"><a class="header" href="#blog">Blog</a></h1>
-<p><a href="journal/../categories/category.html"><code>categories</code></a>
-<a href="journal/../categories/programming.html"><code>programming</code></a>
-<a href="journal/../categories/math.html"><code>math</code></a>
-<a href="journal/../categories/workout.html"><code>workout</code></a>
-<a href="journal/../categories/linguistics.html"><code>linguistics</code></a>
-<a href="journal/../categories/anime.html"><code>anime</code></a>
-<a href="journal/../categories/work.html"><code>work</code></a>
-<a href="journal/../categories/game.html"><code>game</code></a></p>
-<h2 id="202410"><a class="header" href="#202410">2024/10</a></h2>
+<p><a href="journal/?search=@tag(categories)"><code>categories</code></a>
+<a href="journal/?search=@tag(programming)"><code>programming</code></a>
+<a href="journal/?search=@tag(rust)"><code>rust</code></a>
+<a href="journal/?search=@tag(math)"><code>math</code></a>
+<a href="journal/?search=@tag(workout)"><code>workout</code></a>
+<a href="journal/?search=@tag(linguistics)"><code>linguistics</code></a>
+<a href="journal/?search=@tag(anime)"><code>anime</code></a>
+<a href="journal/?search=@tag(work)"><code>work</code></a>
+<a href="journal/?search=@tag(game)"><code>game</code></a></p>
+<hr />
+<p><em>2024/12</em></p>
+<ul>
+<li><a href="journal/./2024-12-08-01.html">Digimon exhibition</a></li>
+</ul>
+<p><em>2024/10</em></p>
 <ul>
 <li><a href="journal/./2024-10-26-02.html">Bash may swallow signals</a></li>
 <li><a href="journal/./2024-10-26-01.html">Rusty docker setting</a></li>
 </ul>
-<h2 id="202409"><a class="header" href="#202409">2024/09</a></h2>
+<p><em>2024/09</em></p>
 <ul>
 <li><a href="journal/./2024-09-01-01.html">Inside Tokio's <code>task_local!</code></a></li>
 </ul>
-<h2 id="202408"><a class="header" href="#202408">2024/08</a></h2>
+<p><em>2024/08</em></p>
 <ul>
 <li>🚧 <a href="journal/./2024-08-22-02.html">Unravel <em>Tokio</em>'s <code>CurrentThread</code> runtime</a></li>
 <li><a href="journal/./2024-08-22-01.html">Why the color of a function is our friend</a></li>
@@ -221,7 +209,37 @@ I'm a programmer writing <em>Rust</em>, <em>C/C++</em>, <em>Java</em>, <em>Go</e
 <li><a href="journal/./2024-08-05-01.html">Golang is terrible as a general purpose language</a></li>
 </ul>
 <div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="digimon-exhibition"><a class="header" href="#digimon-exhibition">Digimon exhibition</a></h1>
+<pre><code>@tag(anime)
+</code></pre>
+<p><img src="journal/../assets/digimon-2024/IMG_3701.jpg" alt="bus" /></p>
+<p>今天看到了数码宝贝的展览，就顺道去参观了一下；整体办的内容有限（甚至有点简陋，电话亭居然不能用！），不过确实勾起了不少回忆。
+似乎基本主要是90年代末左右的人会关注digimon，大概是因为那段时间电视上有播放吧。</p>
+<p>整个展厅是顺着动画的剧情时间轴去布置的，每个展厅代表一个动画的篇章：
+<img src="journal/../assets/digimon-2024/IMG_3700.jpg" alt="halls" /></p>
+<p>一开始看到的是成长期的进化画面(巴鲁兽卖萌ing)
+<img src="journal/../assets/digimon-2024/IMG_3655.jpg" alt="growing" />
+还记得幼年期第一期进化的场景（虽然在悬崖边掉到了河里）。</p>
+<p>在理解了数码宝贝世界基本的世界观之后，我们的小队很快遇到了恶魔兽。小时候觉得恶魔兽引诱孩子们进别墅的情节非常经典，其中有幅画似乎在暗示<em>天使与恶魔同在</em>。
+<img src="journal/../assets/digimon-2024/IMG_3658.jpg" alt="devil" /></p>
+<p>接下来我们就遇到了悟空兽，除了悟空兽的出场BGM之外，我印象最深的还是暴龙兽的错误进化，这也让太一第一次开始思考鲁莽与勇气之间的区别。
+<img src="journal/../assets/digimon-2024/IMG_3660.jpg" alt="skeleton" /></p>
+<p>除了恶魔，西方另一个经典的形象就是<em>吸血鬼</em>，所以接下来我们又遇到了吸血魔兽，某种意义上算是恶魔兽的加强版，也是这一段剧情了拓展了数码宝贝的世界观，发现数码世界是与现实世界相连的（这一设定十分超前，其中也深化了动画的主题，引入了家庭、父母、同龄人、虚拟与现实之间的关系探讨）：
+<img src="journal/../assets/digimon-2024/IMG_3664.jpg" alt="vampire" /></p>
+<p>可惜没有看到南瓜兽和矿石兽的万圣节之旅，我永远也忘不了这个情节。</p>
+<p>正当我们以为打败吸血魔兽就可以恢复虚拟与现实之间的秩序之时，又出现了黑暗四天王，其中我印象最深的还是小丑皇，最绝望的时刻，只剩下希望：
+<img src="journal/../assets/digimon-2024/IMG_3668.jpg" alt="joker" />
+<img src="journal/../assets/digimon-2024/IMG_3663.jpg" alt="angel" /></p>
+<p>最后的最后，实际上最终的boss是所有不幸的digimon的怨念，没有人为他们伸张权利，一切都是优胜劣汰的自然法则。到这里，伴着回到现实的列车和butterfly，我和主角小队们一同回到了现实。
+<img src="journal/../assets/digimon-2024/IMG_3689.jpg" alt="back" /></p>
+<p>临走的时候，发现还有战斗暴龙兽的雕像
+<img src="journal/../assets/digimon-2024/IMG_3699.jpg" alt="fight" /></p>
+<p>最后我买了一个盲盒，居然真的抽中了我编程的启蒙大佬光子郎：
+<img src="journal/../assets/digimon-2024/IMG_3702.jpg" alt="program" /></p>
+<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
 <h1 id="bash-may-swallow-signals"><a class="header" href="#bash-may-swallow-signals">Bash may swallow signals</a></h1>
+<pre><code>@tag(programming)
+</code></pre>
 <p>Recently I encountered a confusing bug:</p>
 <blockquote>
 <p>A simple <code>eprintln!</code> in Rust may cause panic!</p>
@@ -277,6 +295,8 @@ exec program
 </blockquote>
 <div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
 <h1 id="rusty-docker-setting"><a class="header" href="#rusty-docker-setting">Rusty docker setting</a></h1>
+<pre><code>@tag(programming)
+</code></pre>
 <p>Recently I'm learning debugging and profiling tools of <em>Rust</em> on <em>Linux</em>.
 I utilize docker to build a debian container and install various kinds of tools(e.g., LLDB, perf).
 However, to use LLDB in docker container, there're some notices which one may need to care.</p>
@@ -300,6 +320,8 @@ I just cannot use LLDB commands!</p>
 <p>Now LLDB is ready for debugging rust programs!</p>
 <div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
 <h1 id="inside-tokios-task_local"><a class="header" href="#inside-tokios-task_local">Inside Tokio's <code>task_local!</code></a></h1>
+<pre><code>@tag(programming)
+</code></pre>
 <p>Recently I'm curious about Tokio runtime's <code>task_local</code> and <code>LocalKey</code>.
 How can this macro ensure task-level global variable?</p>
 <h2 id="task_local-is-based-on-thread_local"><a class="header" href="#task_local-is-based-on-thread_local"><code>task_local!</code> is based on <code>thread_local!</code></a></h2>
@@ -445,6 +467,8 @@ The future impl is as follows:</p>
 <p>As easy as pie ;)</p>
 <div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
 <h1 id="unravel-tokios-currentthread-runtime"><a class="header" href="#unravel-tokios-currentthread-runtime">Unravel <em>Tokio</em>'s <code>CurrentThread</code> runtime</a></h1>
+<pre><code>@tag(programming)
+</code></pre>
 <p><em>Tokio</em> provides nice async runtimes and async utilities.
 I'm curious on its implemention of runtimes. Let's see its <code>CurrentThread</code> runtime first!</p>
 <h2 id="overview"><a class="header" href="#overview">Overview</a></h2>
@@ -452,6 +476,8 @@ I'm curious on its implemention of runtimes. Let's see its <code>CurrentThread</
 <h2 id="worker"><a class="header" href="#worker">Worker</a></h2>
 <div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
 <h1 id="why-the-color-of-a-function-is-our-friend"><a class="header" href="#why-the-color-of-a-function-is-our-friend">Why the color of a function is our friend</a></h1>
+<pre><code>@tag(programming)
+</code></pre>
 <p>When talking about 'stackful coroutine <em>vs</em> stackless coroutine',
 Some people claims that stackless coroutine's <em>async</em> color is infectious.
 Once a function <code>await</code>s for async operations, it's <em>async</em> too.
@@ -501,6 +527,8 @@ Also, colors within a proper type system can prevent many potential bugs and per
 <p>Embrace colors and effects!</p>
 <div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
 <h1 id="基于省略规则的轻量级英语语法系统"><a class="header" href="#基于省略规则的轻量级英语语法系统">基于省略规则的轻量级英语语法系统</a></h1>
+<pre><code>@tag(linguistics)
+</code></pre>
 <p>对于单纯的语言使用者而言，一门自然语言的语法其实并不是很重要，只有语言学者才会在意并尝试进行系统化。
 但是在缺失语言环境的条件下，我们不得不了解语法来帮助我们快速联系并建立直觉和语感。
 传统的英语语法往往会分门别类，对许多细节的严谨性也会导致最终总结的规则较为复杂；我认为其实自然语言并非类似数学或者编程语言那样的形式化语言，自然语言更接近一种符合直觉的，便于沟通而不断迭代演进的结果。因而我想阐述一种非常简化的基于省略系统的语法系统，帮助自己快速抓住英语语法中的直觉和思维习惯。</p>
@@ -578,6 +606,8 @@ Also, colors within a proper type system can prevent many potential bugs and per
 </blockquote>
 <div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
 <h1 id="golang-does-have-sum-types-however"><a class="header" href="#golang-does-have-sum-types-however"><em>Golang</em> does have sum types, however...</a></h1>
+<pre><code>@tag(programming)
+</code></pre>
 <blockquote>
 <p>Golang has no sum type!</p>
 </blockquote>
@@ -630,13 +660,14 @@ func (res Result[T, E]) Switch() result[T, E] {
 <p>Although we can simulate <code>Result</code> sum type in Golang, we are still forced to use (T, error) and write <code>if err != nil</code> lol. What a great language!</p>
 <div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
 <h1 id="rewatch-code-geass"><a class="header" href="#rewatch-code-geass">Rewatch <em>Code Geass</em></a></h1>
-<blockquote>
-<p>August 11, 2024</p>
-</blockquote>
+<pre><code>@tag(anime)
+</code></pre>
 <p><em>Code Geass</em> is one of my favorite animes.
 <img src="journal/../assets/code-geass-emperor-lelouch-vi-britannia.jpg" alt="emperor-lelouch" /></p>
 <div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
 <h1 id="another-view-of-rusts-lifetime"><a class="header" href="#another-view-of-rusts-lifetime">Another view of Rust's lifetime</a></h1>
+<pre><code>@tag(programming) @tag(rust)
+</code></pre>
 <p>Compared with <em>Haskell</em>, Rust is different for its effect system and ownership system.
 Inside ownership system, lifetime plays an important role on borrowing and safety.
 Traditionally, people think about lifetime as some region of code, which is a little kind of vague.
@@ -764,6 +795,8 @@ From this graph, we can easily conclude:</p>
 </code></pre>
 <div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
 <h1 id="the-two-sides-of-programming-languages"><a class="header" href="#the-two-sides-of-programming-languages">The two sides of programming languages</a></h1>
+<pre><code>@tag(programming)
+</code></pre>
 <p>Some people ask for programming languages worth learning.
 I think almost all common languages worth a try, but I personally prefer two sides of programming languages.
 You can imagine that there exists a balance whose left side represents <em>machine</em> and right represents <em>abstraction</em>.</p>
@@ -787,6 +820,8 @@ Personally, I love <em>C</em> and <em>Rust</em> with some <em>assembly</em> code
 I love it so much.</p>
 <div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
 <h1 id="my-progamming-key-bindings"><a class="header" href="#my-progamming-key-bindings">My progamming key bindings</a></h1>
+<pre><code>@tag(programming)
+</code></pre>
 <p>I like the idea of editing of <em>VIM</em>, but I still think this is not the best.
 Some keys of <em>vscode</em>, <em>emacs</em> and particularly <em>Kakoune</em> ans <em>helix</em> are modern.</p>
 <h2 id="general-idea"><a class="header" href="#general-idea">General idea</a></h2>
@@ -1200,6 +1235,8 @@ I use the extension <a href="https://marketplace.visualstudio.com/items?itemName
 </code></pre>
 <div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
 <h1 id="polymorphism-in-rust"><a class="header" href="#polymorphism-in-rust">Polymorphism in Rust</a></h1>
+<pre><code>@tag(programming) @tag(rust)
+</code></pre>
 <p>Every language has polymorphism functions. Some utilize dynamic interfaces, some invent generics and typeclass to overload behavories.</p>
 <p>Rust has <em>both</em>.</p>
 <p>In Rust, we have type parameters and traits.
@@ -1266,6 +1303,8 @@ enum Expr&lt;K: Kind&gt; {
 <p>I believe in the future, we can have effect polymorphism with <code>Coroutine</code> one-shot algebraic effects and ownership polymorphism with <em>GAT</em> and <em>impl type</em> alias.</p>
 <div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
 <h1 id="relaxed-ordering-and-visibility"><a class="header" href="#relaxed-ordering-and-visibility"><code>Relaxed</code> ordering and visibility</a></h1>
+<pre><code>@tag(programming)
+</code></pre>
 <p>I'm really curious that whether the <em>relaxed</em> memory ordering can ensure to see
 the last recent value in the total modification order. It appears that the C++ memory model alone is not enough.</p>
 <p>The C++ memory model only states that</p>
@@ -1291,6 +1330,8 @@ int b = g.load();
 <p>which means you don't need to worry about operations like <code>fetch_xx</code> and <code>compare_exchange</code>.</p>
 <div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
 <h1 id="golang-is-terrible-as-a-general-purpose-language"><a class="header" href="#golang-is-terrible-as-a-general-purpose-language">Golang is terrible as a general purpose language</a></h1>
+<pre><code>@tag(programming)
+</code></pre>
 <p>Golang is terrible at several things:</p>
 <ol>
 <li>
@@ -1326,56 +1367,6 @@ You have to <code>mkdir</code> to create inner modules.</p>
 <li>Fast development with bugs.</li>
 <li>Fast compiling time with little static check.</li>
 </ol>
-<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
-<h1 id="categories"><a class="header" href="#categories">Categories</a></h1>
-<ul>
-<li><a href="categories/./programming.html">Programming</a></li>
-<li><a href="categories/./math.html">Math</a></li>
-<li><a href="categories/./workout.html">Workout</a></li>
-<li><a href="categories/./linguistics.html">Linguistics</a></li>
-<li><a href="categories/./anime.html">Anime</a></li>
-<li><a href="categories/./music.html">Music</a></li>
-<li><a href="categories/./reading.html">Reading</a></li>
-<li><a href="categories/./work.html">Work</a></li>
-<li><a href="categories/./game.html">Game</a></li>
-</ul>
-<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
-<h1 id="programming"><a class="header" href="#programming">Programming</a></h1>
-<ul>
-<li><a href="categories/../journal/2024-10-26-02.html">Bash may swallow signals</a></li>
-<li><a href="categories/../journal/2024-10-26-01.html">Rusty docker setting</a></li>
-<li><a href="categories/../journal/2024-09-01-01.html">Inside Tokio's <code>task_local!</code></a></li>
-<li><a href="categories/../journal/2024-08-22-01.html">Why the color of a function is our friend</a></li>
-<li><a href="categories/../journal/2024-08-11-02.html">Another view of Rust's lifetime</a></li>
-<li><a href="categories/../journal/2024-08-11-04.html"><em>Golang</em> does have sum types, however...</a></li>
-<li><a href="categories/../journal/2024-08-11-01.html">The two sides of programming languages</a></li>
-<li><a href="categories/../journal/2024-08-10-01.html">My programming key bindings</a></li>
-<li><a href="categories/../journal/2024-08-05-03.html">Polymorphism in Rust</a></li>
-<li><a href="categories/../journal/2024-08-05-02.html"><code>Relaxed</code> ordering and visibility</a></li>
-<li><a href="categories/../journal/2024-08-05-01.html">Golang is terrible as a general purpose language</a></li>
-</ul>
-<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
-<h1 id="math"><a class="header" href="#math">Math</a></h1>
-<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
-<h1 id="workout"><a class="header" href="#workout">Workout</a></h1>
-<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
-<h1 id="linguistics"><a class="header" href="#linguistics">Linguistics</a></h1>
-<ul>
-<li><a href="categories/../journal/2024-08-19-01.html">基于省略规则的轻量级英语语法系统</a></li>
-</ul>
-<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
-<h1 id="anime"><a class="header" href="#anime">Anime</a></h1>
-<ul>
-<li><a href="categories/../journal/2024-08-11-03.html">Rewatch <em>Code Geass</em></a></li>
-</ul>
-<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
-<h1 id="music"><a class="header" href="#music">Music</a></h1>
-<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
-<h1 id="reading"><a class="header" href="#reading">Reading</a></h1>
-<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
-<h1 id="work"><a class="header" href="#work">Work</a></h1>
-<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
-<h1 id="game"><a class="header" href="#game">Game</a></h1>
 <div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
 <h1 id="h1"><a class="header" href="#h1">H1</a></h1>
 <blockquote>
@@ -1453,7 +1444,9 @@ static inline register void main(){
 
         <script>
         window.addEventListener('load', function() {
-            window.setTimeout(window.print, 100);
+            MathJax.Hub.Register.StartupHook('End', function() {
+                window.setTimeout(window.print, 100);
+            });
         });
         </script>
 
